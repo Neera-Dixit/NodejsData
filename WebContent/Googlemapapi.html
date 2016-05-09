@@ -1,0 +1,157 @@
+
+<html  ng-app="findPlacesApp" class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>What's Near Me</title>
+  <meta name="description" content="Find what's near you">
+  
+    <!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<script src="Resources/js/googlemap.js"></script>
+	
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<script src="Resources/js/angular.min.js"></script>
+
+  <script src="Resources/js/appJs.js"></script>
+  
+ <script src="Resources/js/fbOAuth.js"></script>
+ <script src="Resources/js/gmailOAuth.js"></script>
+ 
+
+  <style type="text/css">
+
+    html { height: 100% }
+
+body { height: 100%; margin: 0; padding: 0; }
+
+body {
+    overflow: hidden;
+}
+
+.navbar {
+    z-index: 100;
+}
+
+.navbar-fixed-top .navbar-inner
+{
+    padding-left: 15px; 
+    padding-right: 15px;
+}
+
+
+.navbar .input-append .btn {
+    margin: 0px;
+}
+
+#content {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    padding-top: 40px;
+    width: 100%;
+}
+
+#padded-content {
+    height: 100%;
+}
+
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+  
+  .navbar-fixed-top {
+    margin-bottom: 0px;
+    position: fixed;
+  }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    
+    .navbar-fixed-top {
+        padding-left: 10px;
+        padding-right: 10px;
+        position: fixed;
+    }
+}
+
+
+  </style>
+</head>
+<body ng-controller="googleMapController" id="googleMapId">
+
+<script type="text/javascript">
+      (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+     })();
+</script>
+
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <!-- <a class="brand" href="#">NearMe</a> -->
+            <!--
+            <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">                        
+                <i class="icon-chevron-down"></i>
+            </button> -->
+            <form align="center" id="search" class="navbar-form form-search" >                    
+                <div class="input-append"  >
+                    <input id="query" type="text" class="search-query" placeholder="Where to?" >
+                    <button type="button" id="searchBtn"  class="btn btn-default">
+          				<span class="glyphicon glyphicon-search"></span> Search
+        		</button>
+        		
+        		 <span style="position: absolute;right: 15%;"><img ng-src="{{getUserImage();}}">&nbsp;<b>Welcome {{getUserName();}} !</b></span>
+        		 
+				 <span style="position: absolute;right: 1%;">
+				 
+				 <!-- <a href="http://localhost:8080/FindPlaces/index.html">logout</a> --> 
+				
+				 <button id="logoutButton"  ng-click="logout()" class="btn btn-info btn-lg">
+         			 <span class="glyphicon glyphicon-log-out">logout</span>
+        		</button> 
+        		
+        	
+        		</span>
+                </div>       
+                
+                
+                
+            </form>
+            
+           
+        </div>
+    </div>
+</div>
+
+<div id="content">
+<div id="padded-content">
+<div id="location-details"></div>
+<div id="map_canvas" style="left: 10%;top:10%;width: 70%; height: 80%"></div>
+</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
+<script type="text/javascript">
+   
+</script>
+</body>
+</html>

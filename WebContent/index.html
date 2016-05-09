@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="findPlacesApp">
+
+<head>
+
+<title>Home Page</title>
+
+<!-- JQuery -->
+<script src="Resources/js/jquery.min.js"></script>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="Resources/css/bootstrap.min.css">
+<link href="Resources/css/font-awesome.css" rel="stylesheet">
+<link href="Resources/css/style.css" rel="stylesheet">
+
+<!-- Angular JS File -->
+<script src="Resources/js/angular.min.js"></script>
+
+<!-- Gmail OAuth JS File -->
+<script src="Resources/js/gmailOAuth.js"></script>
+
+<!-- FB OAuth JS File -->
+<script src="Resources/js/fbOAuth.js"></script>
+
+<!-- Custome JS File -->
+<script src="Resources/js/appJs.js"></script>
+
+</head>
+
+<body ng-controller="findPlacesAppController" id="findPlacesAppId">
+
+<script type="text/javascript">
+      (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+     })();
+</script>
+
+
+	<div class="container">
+
+		<form class="form-signin">
+		
+			<b><h1>{{message}}</h1></b> <br /> <br />
+
+			<h2 class="form-signin-heading">Please sign in</h2>
+
+			<label for="inputEmail" class="sr-only">Email address</label> <input
+				type="email" id="inputEmail" class="form-control"
+				placeholder="Email address" size="10" ng-model="email" required
+				autofocus> <label for="inputPassword" class="sr-only">Password</label>
+				
+			<input type="password" id="inputPassword" class="form-control"
+				ng-model="password" placeholder="Password" required> <img
+				id="userImage" src="">
+				
+			<button class="btn btn-lg btn-primary btn-block" type="submit"
+				onclick="logIn('Website login')">Sign in</button>
+
+
+			<br /> <br /> <b>Or</b> <br> <br> 
+			
+			<span>
+
+				<button onclick="logIn('google')">
+					<a class="btn btn-block btn-social btn-google-plus"> <i class="fa fa-google-plus"></i> <b>Sign in with Google</b>
+					</a>
+				</button> 
+				
+				<br /> <br />
+				
+				 <fb:login-button scope="public_profile,email" onlogin="logIn('facebook')"></fb:login-button>
+
+				
+			</span>
+
+
+		</form>
+
+	</div>
+
+</body>
+</html>
