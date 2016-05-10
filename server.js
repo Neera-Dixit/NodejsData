@@ -1,7 +1,7 @@
 var express=require('express');
 var expressApp=express();
 var bodyParser = require('body-parser');
-var User=require('./nodeMongoConnect');
+//var User=require('./nodeMongoConnect');
 
 //expressApp.use(bodyParser.urlencoded({ extended: false }));
 
@@ -12,7 +12,7 @@ expressApp.listen(server_port, server_ip_address, function () {
   console.log( "Listening on " + server_ip_address + ", server_port " + port )
 });
 
-expressApp.get('/authenticate',function(request,response){
+/*expressApp.get('/authenticate',function(request,response){
     console.log(request.query.email);
     console.log(request.query.password);
    
@@ -26,7 +26,7 @@ expressApp.get('/authenticate',function(request,response){
          email : userEmail,
          password : userPassword
           
-    });
+    });*/
 
     /*// To Save data in to collection
     userData.save(function(err) {
@@ -37,7 +37,7 @@ expressApp.get('/authenticate',function(request,response){
 
     // To retrive all the data from the collection
     
-    User.find({ "email" : userEmail,"password" : userPassword }, function(err, authStatus) {
+   /* User.find({ "email" : userEmail,"password" : userPassword }, function(err, authStatus) {
     	  if (err) throw err;
 
     	  console.log(authStatus);
@@ -50,7 +50,7 @@ expressApp.get('/authenticate',function(request,response){
     	  	else
     	  		response.jsonp(true);
     	  		
-    	});
+    	});*/
 
 
 });
