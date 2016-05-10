@@ -87,8 +87,9 @@
     "type": "git",
     "url": "git+https://github.com/sindresorhus/package-json.git"
   },
-  "scripts": {
-    "start": "node server.js"
-  },
-"main": "server.js"  "version": "1.2.0"
+ "scripts": {
+  "start": "node server.js"
+},
+"main": "server.js"
+ 
 }
