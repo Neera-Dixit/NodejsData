@@ -5,6 +5,13 @@ var User=require('./nodeMongoConnect');
 
 //expressApp.use(bodyParser.urlencoded({ extended: false }));
 
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+ 
+expressApp.listen(server_port, server_ip_address, function () {
+  console.log( "Listening on " + server_ip_address + ", server_port " + port )
+});
+
 expressApp.get('/authenticate',function(request,response){
     console.log(request.query.email);
     console.log(request.query.password);
@@ -48,5 +55,5 @@ expressApp.get('/authenticate',function(request,response){
 
 });
 
-expressApp.listen(4000);
+//expressApp.listen(8080);
 
